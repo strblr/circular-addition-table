@@ -43,7 +43,7 @@ const Canvas: FunctionComponent<CanvasProps> = ({ modulo, factor }) => {
   const schedulerRef = useRef(new Scheduler());
   const centerRef = useRef<[number, number]>([0, 0]);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [moduloSpring] = useSpring(modulo, { decimals: 0 });
+  const [moduloSpring] = useSpring(modulo);
   const [factorSpring] = useSpring(factor);
 
   useEffect(() => {
@@ -120,6 +120,7 @@ const Panel: FunctionComponent<PanelProps> = ({
           <Slider
             min={2}
             max={300}
+            step={2}
             value={modulo}
             onChange={modulo => setModulo(modulo as number)}
           />
@@ -129,7 +130,7 @@ const Panel: FunctionComponent<PanelProps> = ({
           <Slider
             min={1}
             max={30}
-            step={0.05}
+            step={0.5}
             value={factor}
             onChange={factor => setFactor(factor as number)}
           />
@@ -142,7 +143,7 @@ const Panel: FunctionComponent<PanelProps> = ({
 // App
 
 const App: FunctionComponent = () => {
-  const [modulo, setModulo] = useState(200);
+  const [modulo, setModulo] = useState(220);
   const [factor, setFactor] = useState(2);
   return (
     <>

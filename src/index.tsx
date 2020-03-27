@@ -28,7 +28,7 @@ class Scheduler {
 
   run(task: Function) {
     this.enqueue(task);
-    this.dequeue();
+    defer(() => this.dequeue());
   }
 }
 

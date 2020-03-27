@@ -19,10 +19,8 @@ class Scheduler {
   private dequeue() {
     if (this.stack.length) {
       const task = this.stack.shift()!;
-      defer(() => {
-        task();
-        this.dequeue();
-      });
+      task();
+      defer(() => this.dequeue());
     }
   }
 

@@ -117,7 +117,7 @@ const Panel: FunctionComponent<PanelProps> = ({
           <h4>Modulo</h4>
           <Slider
             min={2}
-            max={300}
+            max={1000}
             step={2}
             value={modulo}
             onChange={modulo => setModulo(modulo as number)}
